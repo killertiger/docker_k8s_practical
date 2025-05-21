@@ -47,13 +47,14 @@ Error page that crashes the app:
 ```
 
 ## Clean up
-Clean by item
+Clean by imperative approach
 ```bash
 kubectl delete deployments second-app-deployment
 kubectl delete services backend
 ```
 
-Clean by declarative way
+Clean by declarative approach
 ```bash
 kubectl delete -f=deployment.yaml -f=service.yaml
 ```
+
