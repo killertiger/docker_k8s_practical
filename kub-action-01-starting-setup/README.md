@@ -31,11 +31,20 @@ kubectl apply -f master-deployment.yaml
 
 ## Running
 
-Running on minikube
+Running with minikube
 ```bash
 minikube service backend
 ```
 
+Root page:
+```
+/
+```
+
+Error page that crashes the app:
+```
+/error
+```
 
 ## Clean up
 Clean by item
