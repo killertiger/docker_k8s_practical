@@ -1,4 +1,4 @@
-# Kub Action 01 Starting Setup
+# Kub Data 01 Starting Setup
 
 Based on course (Docker & Kubernetes: The Practical Guide [2025 Edition])[https://bairesdev.udemy.com/course/docker-kubernetes-the-practical-guide]
 
