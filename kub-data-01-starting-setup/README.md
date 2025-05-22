@@ -37,7 +37,7 @@ minikube start --driver=docker
 
 Apply configuration
 ```
-kubectl apply -f=service.yaml -f=deployment.yaml -f=host-pvc.yaml -f=host-pv.yaml
+kubectl apply -f=service.yaml -f=deployment.yaml -f=host-pvc.yaml -f=host-pv.yaml -f=environment.yaml
 ```
 
 Checking volumes
