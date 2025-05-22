@@ -37,7 +37,18 @@ minikube start --driver=docker
 
 Apply configuration
 ```
-kubectl apply -f=service.yaml -f=deployment.yaml
+kubectl apply -f=service.yaml -f=deployment.yaml -f=host-pvc.yaml -f=host-pv.yaml
+```
+
+Checking volumes
+```
+$ kubectl get pv
+NAME      CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM              STORAGECLASS   VOLUMEATTRIBUTESCLASS   REASON   AGE
+host-pv   1Gi        RWO            Retain           Bound    default/host-pvc   standard       <unset>                          42s
+
+$ kubectl get pvc
+NAME       STATUS   VOLUME    CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+host-pvc   Bound    host-pv   1Gi        RWO            standard       <unset>                 22s
 ```
 
 ## Running
@@ -63,10 +74,15 @@ GET http://127.0.0.1:60601/error
 
 ## Documentation
 
+### hostPath
 Mount the volume in the host path. It is a valid solution only for development.
+In case of multiple hosts, this solution will not work.
 ```
 volumes:
 - name: story-volume
   hostPath:
     path: 
 ```
+
+### Persistent Volume
+Is detached from the pods
