@@ -11,51 +11,38 @@ Section 13: Managing Data & Volumes with Kubernetes
 
 ## Setup
 
-### Step by step
-Setup
+Create a repository in dockerhub
+
+Build image
+
 ```bash
-kubectl apply -f=deployment.yaml
-kubectl apply -f=service.yaml
+docker build -t killertiger/kub-data-demo .
 ```
 
+Push image
+
 ```bash
-kubectl get deployments
-kubectl get services
+docker push killertiger/kub-data-demo
 ```
 
-### Setup all
-Using merged file
-
+Ensure that minikube is running
 ```bash
-kubectl apply -f master-deployment.yaml
+minikube status
+```
+
+If minikube is not running
+```
+minikube start --driver=docker
+```
+
+Apply configuration
+```
+kubectl apply -f=service.yaml -f=deployment.yaml
 ```
 
 ## Running
 
-Running with minikube
-```bash
-minikube service backend
+Running service
 ```
-
-Root page:
+minikube service story-service
 ```
-/
-```
-
-Error page that crashes the app:
-```
-/error
-```
-
-## Clean up
-Clean by imperative approach
-```bash
-kubectl delete deployments second-app-deployment
-kubectl delete services backend
-```
-
-Clean by declarative approach
-```bash
-kubectl delete -f=deployment.yaml -f=service.yaml
-```
-
