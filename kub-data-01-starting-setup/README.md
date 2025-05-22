@@ -46,3 +46,27 @@ Running service
 ```
 minikube service story-service
 ```
+
+
+GET  http://127.0.0.1:60601/story
+
+POST
+```json
+{
+    "text": "My text"
+}
+```
+
+Raise error
+GET http://127.0.0.1:60601/error
+
+
+## Documentation
+
+Mount the volume in the host path. It is a valid solution only for development.
+```
+volumes:
+- name: story-volume
+  hostPath:
+    path: 
+```
