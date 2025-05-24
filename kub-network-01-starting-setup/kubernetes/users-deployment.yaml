@@ -15,3 +15,8 @@ spec:
       containers:
         - name: users
           image: ranikamble/kub-demo-users
+          env:
+            - name: AUTH_ADDRESS
+              value: localhost
+        - name: auth
+          image: ranikamble/kub-demo-auth
