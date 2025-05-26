@@ -17,6 +17,4 @@ spec:
           image: ranikamble/kub-demo-users
           env:
             - name: AUTH_ADDRESS
-              value: localhost
-        - name: auth
-          image: ranikamble/kub-demo-auth
+              value: "10.99.13.82"
