@@ -13,16 +13,22 @@ Section 14: Kubernetes Networking
 
 Create a repository in dockerhub
 
-Build image
+Build images
 
 ```bash
 docker build -t killertiger/kub-demo-users .
+docker build -t killertiger/kub-demo-tasks .
+docker build -t killertiger/kub-demo-auth .
+docker build -t killertiger/kub-demo-frontend .
 ```
 
 Push image
 
 ```bash
 docker push killertiger/kub-demo-users
+docker push killertiger/kub-demo-tasks
+docker push killertiger/kub-demo-auth
+docker push killertiger/kub-demo-frontend
 ```
 
 Ensure that minikube is running
@@ -37,7 +43,10 @@ minikube start --driver=docker
 
 Apply configuration
 ```
-kubectl apply -f=users-deployment.yaml
+kubectl apply -f=users-deployment.yaml -f=users-service.yaml
+kubectl apply -f=tasks-deployment.yaml -f=tasks-service.yaml
+kubectl apply -f=auth-deployment.yaml -f=auth-service.yaml
+kubectl apply -f=frontend-deployment.yaml -f=frontend-service.yaml
 ```
 
 
