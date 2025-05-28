@@ -26,24 +26,23 @@ docker push killertiger/kub-dep-users
 docker push killertiger/kub-dep-auth
 ```
 
-Ensure that minikube is running
-```bash
-minikube status
-```
-
-If minikube is not running
-```
-minikube start --driver=docker
-```
 
 Apply configuration
 ```
 kubectl apply -f=users-deployment.yaml -f=users-service.yaml
-kubectl apply -f=tasks-deployment.yaml -f=tasks-service.yaml
 kubectl apply -f=auth-deployment.yaml -f=auth-service.yaml
-kubectl apply -f=frontend-deployment.yaml -f=frontend-service.yaml
 ```
 
+
+Create a key in https://us-east-1.console.aws.amazon.com/iam/home?region=us-east-1#/security_credentials and use the following command to set up
+```
+aws configure
+```
+
+Setup kubectl
+```
+aws eks --region us-east-1 update-kubeconfig --name kub-dep-demo
+```
 
 
 ## Running
