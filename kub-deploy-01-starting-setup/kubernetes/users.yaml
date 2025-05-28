@@ -30,6 +30,6 @@ spec:
           image: killertiger/kub-dep-users:latest
           env:
             - name: MONGODB_CONNECTION_URI
-              value: 'mongodb+srv://killertiger:2L5cQHhOAMqbtyiX@users.baoc7ox.mongodb.net/?retryWrites=true&w=majority&appName=users'
+              value: 'REPLACE_HERE_BY_MONGODB_CONNECTION_URL'
             - name: AUTH_API_ADDRESSS
               value: 'auth-service.default:3000'
